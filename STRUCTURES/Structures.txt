@@ -1,0 +1,69 @@
+# STRUCTURES
+------------
+
+* Introduction
+--------------
+1 min
+Throughout this course, we have defined many different variable types like, int and char. These are known as the basic types and are built-in to C.
+
+We’ve also defined data types like arrays and pointers which are known as derived types. Derived types tend to be a collection of basic types to create a new, more powerful data type. We 
+will now explore another derived type, the structure.
+
+In C, structures allow programmers to create user-defined data types. Structures, like arrays, allow you to collect many data types into one single data type. But unlike arrays, 
+structures can be a collection of multiple data types.
+
+Variable Types in a Structure
+
+{	char c = 'x';		}
+{	 int a = 5;		}
+{      double b = 2.3;		}
+{    char* name = "Ada";        }	
+
+The above image represents a structure and the different types of variables contained within it. This type of “packaging” is beneficial because it helps build and pass around logically related data in a single user-defined data type.
+
+* Instructions
+--------------
+Take a look at and run the code in the workspace. Notice in the script.c file all the variables that are defined. Think about how you could use structures to organize the data.
+
+script.c
+--------
+#include <stdio.h>
+
+int main(void) {
+  char firstName[] = "Ada";
+  char lastName[] = "Lovelace";
+  int age = 28;
+  char profession[] = "Mathematician";
+
+  printf("My name is %s %s, I am %d years old and I am a %s.", firstName, lastName, age, profession);
+}
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
