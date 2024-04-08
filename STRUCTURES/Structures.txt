@@ -224,6 +224,239 @@ int main(void) {
 
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
+* Why Use Structures
+--------------------
+7 min
+Let’s now take a step back and discuss why we would want to use structures. Look at an example of a program that uses bottle data without structures.
+
+char bottleName1[]  = "Medium Bottle";
+int maxCapacity1 = 24;
+int currentCapcity1 = 0;
+
+char bottleName2[]  = "Large Bottle";
+int maxCapacity2 = 48;
+int currentCapcity2 = 20;
+
+Notice that we need to keep track of six variables while working with this bottle data. As we increase the number of bottles, the number of variables would increase by 3 per bottle. This 
+approach can get extremely unmaintainable.
+
+In a small number of situations, we could possibly use arrays. But that’s only when the data is the same type, so this isn’t useful all the time.
+
+struct Bottle {
+  char* name;
+  int maxCapacity;
+  int currentCapacity;
+};
+
+struct Bottle bottle1 = {"Medium Bottle", 24, 0};
+struct Bottle bottle2 = {"Large Bottle", 48, 20};
+
+Using a struct to encapsulate all the members that represent a Bottle we can:
+
+	1. Reduce complexity by representing a set of data with one variable
+
+	2. Package different, but logically similar, data together
+
+	3. Better represent real-world “things” into data types
+
+Being able to represent data using structures is extremely beneficial as you continue working on more complex real-world problems.
+
+* Instructions
+--------------
+Checkpoint 1 Passed
+1.
+Someone has been working with a group of variables that represent coffee table data. Use structs to organize this data.
+
+Above the main() function:
+
+	. Create a Table structure
+
+	. Define the following variables inside the structure, length, width, height and color[20]
+
+Hint
+Use the following syntax:
+
+struct structureName {
+  memberType1 memberName1;
+  memberType2 memberName2;
+  memberType3 memberName3;
+  memberType4 memberName4[20];
+};
+
+Checkpoint 2 Passed
+2.
+Now initialize the data using the defined structure.
+
+Inside the main() function:
+
+	. Initialize the table1 using the Table struct and the first set of table data
+
+	. Initialize the table2 using the Table struct and the second set of table data
+
+Hint
+Use the following syntax to initialize each structure variable:
+
+struct structType variableName = {value1, value2, value3, value4};
+
+script.c
+--------
+#include <stdio.h>
+
+// Write your code below
+struct Table {
+  int length;
+  int width;
+  int height;
+  char color[20];
+};
+
+int main(void) {
+  int table1Length = 24;
+  int table1Width = 24;
+  int table1Height = 20;
+  char table1Color[20] = "Dark Brown";
+
+  int table2Length = 42;
+  int table2Width = 18;
+  int table2Height = 32;
+  char table2Color[20] = "Matte Black";
+
+  // Write your code below
+  struct Table table1 = {24, 24, 20, "Dark Brown"};
+  struct Table table2 = {42, 18, 32, "Matte Black"};
+}
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+* Structure Dot Notation
+------------------------
+4 min
+Now that we’ve leveraged that power of structures to package variables together we can discuss how we can access each member variable individually using dot notation.
+
+Dot notation is a C operator that allows you to access and modify a member variable of a structure.
+
+struct Bottle {
+  char* name;
+  int maxCapacity;
+  int currentCapacity;
+};
+
+struct Bottle myBottle = {"Medium Bottle", 24, 0};
+
+// Fill some of myBottle
+myBottle.currentCapacity = 10;
+printf("The bottle is now filled to %d", myBottle.currentCapacity);
+
+In the example above:
+
+	. A bottle structure is defined and initialized with the variable myBottle
+
+	. The member variable currentCapacity is accessed and set to 10 with myBottle.currentCapacity = 10
+
+	. The same variable is accessed again using the dot operator and output with printf()
+
+You can also use the dot operator to initialize a structure if you’d like to declare it first without initializing it right away like:
+
+struct Bottle myBottle;
+myBottle.name = "Medium Bottle";
+myBottle.maxCapacity = 24;
+myBottle.currentCapacity = 0;
+
+The dot operator is essential in enhancing the packaging benefits of structs by allowing you to access any of the Bottle member variables through the variable myBottle.
+
+* Instructions
+--------------
+Checkpoint 1 Passed
+1.
+The workspace has defined a Person struct. Inside the main() function, person1 and person2 are initialized as Person types and the names of each have also been set.
+
+Following the initialization and using dot notation:
+
+	. Set the age of person1 to 57
+
+	. Set the age of person2 to 27
+
+Hint
+Use the following syntax for each structure variable:
+
+structureVariable.memberVariable = value;
+
+script.c
+--------
+#include <stdio.h>
+
+struct Person {
+  char name[40];
+  int age;
+};
+
+int main(void) {
+  struct Person person1 = {"Martin"};
+  struct Person person2 = {"Michelle"};
+  // Write your code below
+  person1.age = 57;
+  person2.age = 27;
+
+  printf("Hello my name is %s and I am %d years old.\n", person1.name, person1.age);
+  printf("Hello my name is %s and I am %d years old.\n", person2.name, person2.age);
+}
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
