@@ -110,6 +110,121 @@ int main(void) {
 
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
+* Initializing Structures
+-------------------------
+7 min
+Now that we know how to define structures, let’s take a look at how we can use them in our code.
+
+struct Bottle {
+  char* name;
+  int maxCapacity;
+  int currentCapacity;
+};
+
+struct Bottle bottle1 = {"superBottle", 24, 0};
+
+The above example defines the struct Bottle from the last exercise. The last line of the code then initializes a struct using an ordered notation:
+
+	. The struct keyword - once again
+
+	. The user-defined struct type, Bottle
+
+	. The name of the structure variable, bottle1
+
+	. The member variable value assignments within a set of curly braces, {}
+
+The order of values assigned to the member variables match the order in which the variables were defined in the structure.
+
+If you wish to be more specific with your initialization and not worry about putting elements in the right order you can do it using an unordered notation:
+
+struct Bottle bottle1 = {
+  .maxCapacity = 24,
+  .name = "superBottle",
+  .currentCapacity = 0
+};
+
+Once initialized, structures allow you to work with complex data types in a more cohesive and efficient manner.
+
+* Instructions
+--------------
+Checkpoint 1 Passed
+1.
+Before you initialize your first structure, expand the Person struct.
+
+Inside the Person definition and right after the firstName definition:
+
+	. Add a lastName string member variable with a length of 40
+
+Hint
+Use the following syntax:
+
+struct structureName {
+  memberType1 memberName1;
+  newType newName;
+  memberType2 memberName2;
+};
+
+Checkpoint 2 Passed
+2.
+Instantiate a person using the Person struct.
+
+Inside the main() function and using the ordered notation:
+
+	. Initialize the Person structure, person1 with the data below
+
+	. Be sure to place the data in the same order as the member variable definitions
+
+First Name: Ada
+Last Name: Lovelace
+Age: 28
+
+
+Hint
+Use the following syntax to initialize each structure variable:
+
+struct structType variableName = {value1, value2, value3};
+
+Checkpoint 3 Passed
+3.
+Instantiate another person using the Person struct.
+
+Inside the main() function and using the ordered notation:
+
+	. Initialize the Person structure, person2 with the data below
+
+	. Be sure to place the data in the same order as the member variable definitions
+
+First Name: Marie
+Last Name: Curie
+Age: 44
+
+
+Hint
+Use the following syntax to initialize each structure variable:
+
+struct structType variableName = {value1, value2, value3};
+
+script.c
+--------
+#include <stdio.h>
+
+int main(void) {
+  struct Person {
+    char firstName[25];
+    // Write your code below
+    char lastName[40];
+    int age;
+  };
+  
+  // Write your code below
+  struct Person person1 = {"Ada", "Lovelace", 28};
+
+  struct Person person2 = {"Marie", "Curie", 44};
+};
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
 
 
 
