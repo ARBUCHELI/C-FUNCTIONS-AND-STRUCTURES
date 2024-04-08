@@ -40,6 +40,107 @@ int main(void) {
 
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
+* Defining Structures
+---------------------
+4 min
+To help us understand how to include structures (also called structs) in our code, let’s look at how to define them:
+
+Structure components, the keyword struct, the name Bottle and member variables declare inside curly braces
+
+In the image above:
+
+	. The struct keyword initiates the structure type definition
+
+	. Bottle is the name of the new structure type
+
+	. A set of curly braces, {}, to enclose the struct member variables
+
+	. Inside the braces, the member variables are “packaged” together.
+
+Member variables can be any basic types (int, char, etc). They can also be derived types like arrays, pointers, and even other structures. It’s important to note that the member variables 
+should only be declared and not initialized (we will learn about this later). Attempting to give the member variable values will lead to an error.
+
+* Instructions
+--------------
+Checkpoint 1 Passed
+1.
+Time to define your own structure.
+
+Within the main() function:
+
+	. Declare a structure named Person
+
+	. Keep the body of the structure empty
+
+Hint
+Use the following syntax:
+
+struct structureName {
+
+};
+
+Checkpoint 2 Passed
+2.
+Inside the Person structure:
+
+	. Define a string member variable, firstName with a length of 25
+
+	. Define an int member variable, age
+
+Hint
+Use the following syntax:
+
+struct structureName {
+  memberType1 memberName1;
+  memberType2 memberName2;
+};
+
+script.c
+--------
+#include <stdio.h>
+
+int main(void) {
+  // Write your code below
+  struct Person 
+  {
+    char firstName[25];
+    int age;
+  };
+}
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
