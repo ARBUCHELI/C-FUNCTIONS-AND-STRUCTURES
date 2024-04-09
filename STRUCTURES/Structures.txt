@@ -403,6 +403,133 @@ int main(void) {
 
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
+* Structure Pointers
+--------------------
+9 min
+Similar to other derived types, like arrays and strings, structures can use a lot of memory. Imagine a structure with multiple strings each able to hold hundreds of characters.
+
+One way to manage memory while working on data types of this size is to use pointers. As a reminder, a pointer is a variable that holds the memory address to another variable.
+
+For structures, this is accomplished by first defining the structure variable, then defining a pointer and assigning it the address to the structure variable.
+
+struct Bottle myBottle = {"Medium Bottle", 24, 0};
+struct Bottle* bottlePointer = &myBottle;
+
+In the above example, bottlePointer holds the memory address pointing to myBottle.
+
+To access member variables with bottlePointer and the dot operator we can use the following syntax:
+
+(*bottlePointer).name;
+(*bottlePointer).maxCapacity;
+(*bottlePointer).currentCapacity;
+
+When using pointers we need to dereference, *, the address to access the variable it points to. When using the dot operator with structure pointers, we also need to wrap the dereference 
+in parenthesis, (). If we simply dereference like *aPointer.name, it will result in an error.
+
+Arrow notation can also be used with pointers to structures, as it implicitly does the dereferencing for you.
+
+aPointer->name;
+aPointer->maxCapacity;
+aPointer->currentCapacity;
+
+Notice how much better the arrow notation reads compared to dot notation. This notation is a clear and simple way to work with user-defined structure pointers.
+
+* Instructions
+--------------
+Checkpoint 1 Passed
+1.
+The workspace has two Person data types named person1 and person2.
+
+In the main() function:
+
+	. Create a pointer to person1 called person1Pointer
+
+	. Create another pointer that points to person2 called person2Pointer
+
+Hint
+Use the following syntax for both structure variables:
+
+struct structureName* pointerVariable = &structureVariable; 
+
+Checkpoint 2 Passed
+2.
+Now make some changes to person1.
+
+After the pointer definition and using dereferencing and dot notation:
+
+	. Add 1 to the member variable age of person1
+
+Hint
+Use the following syntax:
+
+(*pointerVariable).memberVariable += value;
+
+Checkpoint 3 Passed
+3.
+Now change the other structure data.
+
+Using arrow notation:
+
+	. Add 10 to the member variable age of person2
+
+Hint
+Use the following syntax:
+
+pointerVariable->memberVariable += value;
+
+script.c
+--------
+#include <stdio.h>
+
+struct Person {
+  char name[40];
+  int age;
+};
+
+int main(void) {
+  struct Person person1 = {"Martin", 57};
+  struct Person person2 = {"Michelle", 27};
+  // Write your code below
+  struct Person* person1Pointer = &person1;
+  struct Person* person2Pointer = &person2;
+  (*person1Pointer).age += 1;
+  person2Pointer->age = person2Pointer->age + 10;
+
+  printf("Hello my name is %s and I am %d years old.\n", person1.name, person1.age);
+  printf("Hello my name is %s and I am %d years old.\n", person2.name, person2.age);
+}
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
