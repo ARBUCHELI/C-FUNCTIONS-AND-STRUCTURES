@@ -661,6 +661,63 @@ int main(void) {
 
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
+* Summary
+---------
+1 min
+Great job learning about structures! We’ve covered many important topics:
+
+	. Structures allow you to create user-defined data types
+
+	. Structures can package together other data types into one type
+
+	. You can define a structure using the struct keyword
+
+	. When defining a structure, the member variables are declared but not instantiated
+
+	. Structures help programs work with complex data and can represent real-world objects
+
+	. You can access member variables with the dot operator
+
+	. You can have a pointer to a structure and access its member variables using the arrow operator
+
+	. You can pass structures and structure pointers to functions
+	
+	. You can return structures from functions
+
+With our understanding of structures, we can now create and work with complicated data types easily and efficiently.
+
+* Instructions
+--------------
+Checkpoint 1 Passed
+1.
+Use the code in the workspace to play around with structures.
+
+What can you add to the Person structure? What are some functions that would help act on the structure?
+
+script.c
+--------
+#include <stdio.h>
+struct Person {
+  char name[40];
+  int age;
+};
+
+struct Person ageOne(struct Person friend1, struct Person* friend2Pointer) {
+  friend1.age += 1;
+  friend2Pointer->age +=1;
+  return friend1;
+}
+
+int main(void) {
+  struct Person myFriend = {"Martin", 57};
+  struct Person myOtherFriend = {"Michelle", 27};
+  
+  myFriend = ageOne(myFriend, &myOtherFriend);
+
+  printf("Hello my name is %s and I am %d years old.\n", myFriend.name, myFriend.age);
+  printf("Hello my name is %s and I am %d years old.\n", myOtherFriend.name, myOtherFriend.age);
+}
+
 
 
 
