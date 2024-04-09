@@ -501,6 +501,197 @@ int main(void) {
 
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
+* Structures in Functions
+-------------------------
+14 min
+Let’s wrap up by using structures with functions.
+
+We can specify structures and pointers to structures as parameters to functions:
+
+void myFunction(struct Bottle b, struct Bottle* bPointer)
+
+When passing a structure to a function:
+
+	. A copy of the structure is made so memory usage is a concern
+
+	. Any modifications made to the structure will not affect the original structure, only the copy
+
+When passing a pointer to a structure:
+
+	. Because the pointer is the address of the original structure any modifications to the member variables will affect the original structure
+
+void bottleFunction(struct Bottle b, struct Bottle* bPointer){
+  b.name = "Super Large";
+  b.maxCapacity = 100;
+  bPointer->name = "Super Small";
+  bPointer->maxCapacity = 4;    
+}
+
+int main(){
+  struct Bottle b1 = {"Medium", 24, 9};
+  struct Bottle b2 = {"Large", 35, 9};
+
+  bottleFunction(b1, &b2);
+}
+
+In the above example:
+
+	. bottleFunction has 2 parameters, a Bottle structure and a pointer to a Bottle structure
+
+	. Inside the function, the structures are accessed the same as they would whether it is a structure or pointer to a structure.
+
+	. The first argument in the call to bottleFunction() inside main() is b1. A copy of this structure is made within bottleFunction() and no changes can be made to the values of b1 
+	in main()
+
+	. The second argument in the call to bottleFunction() is &b2: the address of b2. Any change to the member variables using this address will change the values of b2 in main()
+
+We can also return structures by setting the return type in the function signature:
+
+struct Bottle getEmptyBottle(void){
+  struct Bottle b = {"My Bottle", 24, 0};
+  return b;
+}
+
+Notice that structures as parameters and as the return type must use the struct keyword.
+
+* Instructions
+--------------
+Checkpoint 1 Passed
+1.
+Time to look at different ways we can work with structures within functions.
+
+In script.c:
+
+	. Define the function ageOne()
+
+	. Give the function a return type of Person
+
+	. The body can be empty.
+
+Remember to use the keyword struct throughout this definition.
+
+
+Hint
+Use the following syntax:
+
+struct structureType functionName() {
+
+} 
+
+Checkpoint 2 Passed
+2.
+Add some parameters to the ageOne() function definition:
+
+	. The first function parameter should be called friend1 and be of type Person
+
+	. The second parameter should be called friend2Pointer and be a pointer to type Person
+
+Hint
+Use the following syntax:
+
+struct structureType functionName(struct structureType p1, struct structureType* p2) {
+
+} 
+
+Checkpoint 3 Passed
+3.
+Now modify the age member variables within the structures.
+
+Inside ageOne():
+
+	. Add 1 to the age variable in friend1
+
+	. Using the arrow format to dereference, add 1 to the age variable in the structure pointed to by friend2Pointer
+
+	. Return the structure friend1
+
+Hint
+Use the following syntax:
+
+structureVariable.memberVariable += 1;
+structurePointer->memberVariable += 1;
+return structureVariable;
+
+Checkpoint 4 Passed
+4.
+Now test it all out! There are 2 structures defined in main() to work with the function you created.
+
+Inside the main() function:
+
+	. Call ageOne() and assign the return value to myFriend
+
+	. Set the first argument of ageOne() to myFriend
+
+	. Set the 2nd argument of ageOne() to the address of myOtherFriend
+
+Run the code and see how the data changes.
+
+
+Hint
+Use the following syntax:
+
+structureVariable1 = functionName(structureVariable1, &structureVariable2);
+
+script.c
+--------
+#include <stdio.h>
+struct Person {
+  char name[40];
+  int age;
+};
+
+// Write your function below
+struct Person ageOne(struct Person friend1, struct Person* friend2Pointer)
+{
+   friend1.age += 1;
+   friend2Pointer->age += 1;
+   return friend1;
+}
+
+
+int main(void) {
+  struct Person myFriend = {"Martin", 57};
+  struct Person myOtherFriend = {"Michelle", 27};
+  // Call your function below
+  myFriend = ageOne(myFriend, &myOtherFriend);
+
+  printf("Hello my name is %s and I am %d years old.\n", myFriend.name, myFriend.age);
+  printf("Hello my name is %s and I am %d years old.\n", myOtherFriend.name, myOtherFriend.age);
+}
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
